@@ -9,7 +9,7 @@ endif()
 project ("neural_network")
 
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-add_executable (neural_network  "src/neural_network.cpp" "${MY_SOURCES}" "src/types/dim.cpp" "include/types/dim.h")
+add_executable (neural_network  "src/neural_network.cpp" "${MY_SOURCES}")
 target_include_directories(neural_network PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
