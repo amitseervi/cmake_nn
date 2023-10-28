@@ -1,6 +1,9 @@
-#include<configuration.h>
 #include<iostream>
+#include<types/dim.h>
 
 int main() {
-	std::cout << "User name " << get_user_name() << "\n";
+	std::string message = get_message();
+	std::cout << "message =" << message << "\n";
+	Dimension d(1,2);
+	std::cout << "Dimension = " << d.get_m() << " " << d.get_n() << "\n";
 }
