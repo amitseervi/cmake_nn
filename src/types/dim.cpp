@@ -1,18 +1,30 @@
 #include<string>
 #include<types/dim.h>
-std::string get_message() {
-	return "Hello world by Amit chaudhary";
+
+template <typename T>
+Vector1<T>::Vector1(T x):x(x) {
 }
 
-Dimension::Dimension(int n, int m) {
-	this->n = n;
-	this->m = m;
+template <typename T>
+Vector2<T>::Vector2(T x, T y) :Vector1<T>(x), y(y) {
 }
 
-int Dimension::get_n() {
-	return this->n;
+template <typename T>
+Vector3<T>::Vector3(T x, T y, T z) : Vector2<T>(x, y),z(z) {
 }
 
-int Dimension::get_m() {
-	return this->m;
-}
+template class Vector1<float>;
+template class Vector2<float>;
+template class Vector3<float>;
+
+template class Vector1<int>;
+template class Vector2<int>;
+template class Vector3<int>;
+
+template class Vector1<long>;
+template class Vector2<long>;
+template class Vector3<long>;
+
+template class Vector1<double>;
+template class Vector2<double>;
+template class Vector3<double>;
