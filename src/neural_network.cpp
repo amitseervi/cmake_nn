@@ -17,7 +17,7 @@ int main() {
 	b[3] = 2;
 	Vector2<int> dim_a(2, 2);
 	Vector2<int> dim_b(2, 2);
-	matrix_multiplication_cpu_kernel(dim_a, dim_b, a, b, c);
+	matrix_multiplication_gpu_kernel(dim_a, dim_b, a, b, c);
 
 	std::cout << c[0] << "," << c[1] << "\n";
 	std::cout << c[2] << "," << c[3] << "\n";

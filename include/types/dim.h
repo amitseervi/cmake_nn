@@ -22,6 +22,4 @@ public:
 	const T z;
 	Vector3(T x, T y, T z);
 };
-
-
 #endif
