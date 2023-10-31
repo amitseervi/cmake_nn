@@ -1,24 +1,12 @@
 #include<iostream>
-#include<types/dim.h>
-#include<utils/nn_maths.h>
+#include<assert.h>
+#include<utility>
+#include<tensors.h>
 
 int main() {
-	int* a = new int[4];
-	int* b = new int[4];
-	int* c = new int[4];
-	a[0] = 1;
-	a[1] = 2;
-	a[2] = 4;
-	a[3] = 6;
-
-	b[0] = 8;
-	b[1] = 7;
-	b[2] = 3;
-	b[3] = 2;
-	Vector2<int> dim_a(2, 2);
-	Vector2<int> dim_b(2, 2);
-	matrix_multiplication_gpu_kernel(dim_a, dim_b, a, b, c);
-
-	std::cout << c[0] << "," << c[1] << "\n";
-	std::cout << c[2] << "," << c[3] << "\n";
+	Tensor<float> t1(4.3f);
+	Tensor<float> t2(5.3f);
+	Tensor<float> t3 = t1 * t2;
+	t3.backward(1.0f);
+	std::cout << "T1 grad " << t1.get_grad() << " T2 grad " << t2.get_grad() << "\n";
 }
