@@ -1,5 +1,6 @@
 #include<tensors.h>
 #include<stdexcept>
+#include<iostream>
 
 template <typename T>
 Tensor<T> TensorOperationMul<T>::compute() {
@@ -29,12 +30,19 @@ TensorOperationAdd<T>::TensorOperationAdd(Tensor<T>* a, Tensor<T>* b) : TensorBi
 
 template <typename T>
 void TensorBinaryOperation<T>::backward(T grad) {
-	if (this->a != NULL) {
-		this->a->backward(grad);
-	}
-	if (this->a != NULL) {
-		this->b->backward(grad);
-	}
+}
+
+template <typename T>
+void TensorOperationAdd<T>::backward(T grad) {
+	this->a->backward(grad);
+	this->b->backward(grad);
+
+}
+
+template <typename T>
+void TensorOperationMul<T>::backward(T grad) {
+	this->a->backward(grad * this->b->value);
+	this->b->backward(grad * this->a->value);
 }
 
 template <typename T>
