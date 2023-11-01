@@ -1,3 +1,4 @@
+#include<vector>
 #ifndef __HEADER_TENSORS__
 #define __HEADER_TENSORS__
 #define NULL 0
@@ -61,5 +62,11 @@ public:
 	Tensor<T> compute();
 	void backward(T grad);
 };
+
+template <typename T>
+std::vector<T> operator * (const std::vector<T>& a, const std::vector<T>& b);
+
+template <typename T>
+std::vector<T> operator + (const std::vector<T>& a, const std::vector<T>& b);
 
 #endif
